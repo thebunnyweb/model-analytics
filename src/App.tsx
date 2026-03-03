@@ -294,6 +294,7 @@ const App: React.FC = () => {
     intents.forEach(intent => {
       const inCount = rawData.filter(d => d.actual_intent === intent && (String(d.oos_flag) === '0' || !d.oos_flag)).length;
       const outCount = rawData.filter(d => d.actual_intent === intent && String(d.oos_flag) === '1').length;
+      //@ts-ignore
       summaryCountData.push([intent, inCount, outCount, inCount + outCount]);
     });
     window.XLSX.utils.book_append_sheet(wb, window.XLSX.utils.aoa_to_sheet(summaryCountData), "Summary Count");
@@ -318,6 +319,7 @@ const App: React.FC = () => {
     value: string | number;
     subtext: string;
     status?: boolean;
+    //@ts-ignore
     icon: LucideIcon;
   }
 
